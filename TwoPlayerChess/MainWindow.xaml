@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:TwoPlayerChess"
         mc:Ignorable="d"
         Title="MainWindow"
-        Background="Gray"
-        BorderBrush="Gray"
-        BorderThickness="10"
+        Background="Black"
+        BorderBrush="Black"
+        BorderThickness="5"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize">
     <StackPanel Orientation="Horizontal">
-        <UniformGrid Margin="0, 0, 5, 0" Background="DarkGray" MinHeight="600" MinWidth="600"/>
+        <UniformGrid Margin="0, 0, 5, 0" Background="DarkGray" Name="UniformGrid"/>
         <Border Background="DarkGray" Margin="5, 0, 0, 0" Padding="5">
-            <StackPanel  Background="DarkGray" >
+            <StackPanel  Background="DarkGray" MinWidth="150" >
                 <Label FontSize="20" FontWeight="bold"  Content="Two Player Chess" />
                 <Label FontSize="15" FontWeight="Light" Content="by Nathaniel Smith" />
                 <Grid Margin="0, 50, 0, 0">
