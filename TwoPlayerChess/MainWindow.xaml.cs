@@ -24,6 +24,7 @@ namespace TwoPlayerChess
         Board board;
         public MainWindow()
         {
+            //test
             InitializeComponent();
             Cell[,] grid = new Cell[9, 9];
             for (int x = 0; x < 9; x++)
