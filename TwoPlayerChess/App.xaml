@@ -4,28 +4,26 @@
 			 xmlns:local="clr-namespace:TwoPlayerChess"
 			 StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Window" x:Key="Grayscale" x:Name="Grayscale">
+        <Style TargetType="Window" x:Key="Grayscale">
             <Style.Resources>
-                <Style TargetType="ItemsControl">
-                    <Style.Resources>
-                        <Style TargetType="local:EButton">
-                            <Style.Triggers>
-                                <Trigger Property="Highlighted" Value="true">
-                                    <Setter Property="Background" Value="GhostWhite"/>
-                                </Trigger>
-                                <Trigger Property="Highlighted" Value="false">
-                                    <Setter Property="Background" Value="DimGray"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Style.Resources>
+                <Style TargetType="local:EButton">
+                    <Style.Triggers>
+                        <Trigger Property="Highlighted" Value="true">
+                            <Setter Property="Background" Value="GhostWhite"/>
+                        </Trigger>
+                        <Trigger Property="Highlighted" Value="false">
+                            <Setter Property="Background" Value="DimGray"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="UniformGrid">
                     <Setter Property="Background" Value="DarkGray"/>
                 </Style>
                 <Style TargetType="Border">
-					<Setter Property="Background" Value="DarkGray"/>
-				</Style>
-			</Style.Resources>
-			<Setter Property="Background" Value="Black"/>
-		</Style>
-	</Application.Resources>
+                    <Setter Property="Background" Value="DarkGray"/>
+                </Style>
+            </Style.Resources>
+            <Setter Property="Background" Value="Gray"/>
+        </Style>
+    </Application.Resources>
 </Application>

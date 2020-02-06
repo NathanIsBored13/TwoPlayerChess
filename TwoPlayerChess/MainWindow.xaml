@@ -7,17 +7,10 @@
 		mc:Ignorable="d"
 		Title="Two Player Chess"
 		Style="{StaticResource Grayscale}"
-		BorderThickness="5"
 		SizeToContent="WidthAndHeight"
 		ResizeMode="NoResize">
-    <StackPanel Orientation="Horizontal">
-        <ItemsControl Padding="1" AlternationCount="2" x:Name="ItemPresenter">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
+    <StackPanel Margin="5" Orientation="Horizontal">
+        <UniformGrid x:Name="UniformGrid"/>
         <Border Margin="5, 0, 0, 0" Padding="5">
             <StackPanel>
                 <Label FontSize="20" FontWeight="bold"  Content="Two Player Chess"/>

@@ -34,7 +34,7 @@ namespace TwoPlayerChess
 						Margin = new Thickness(1, 1, 1, 1)
 					};
 					button.Click += GridButtonPressed;
-					ItemPresenter.Items.Add(button);
+					UniformGrid.Children.Add(button);
 					grid[x, y] = new Cell(button);
 				}
 			}
