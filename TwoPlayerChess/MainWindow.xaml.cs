@@ -15,42 +15,36 @@ using System.Windows.Shapes;
 
 namespace TwoPlayerChess
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        int cellSize = 75;
-        Board board;
-        public MainWindow()
-        {
-            InitializeComponent();
-            Cell[,] grid = new Cell[9, 9];
-            for (int x = 0; x < 9; x++)
-            {
-                for (int y = 0; y < 9; y++)
-                {
-                    Button button = new Button
-                    {
-                        Uid = $"{x.ToString()}:{y.ToString()}",
-                        Width = cellSize,
-                        Height = cellSize,
-                        Margin = new Thickness(1, 1, 1, 1),
-                        Background = (x + y) % 2 == 0? Brushes.GhostWhite : Brushes.DimGray
-                    };
-                    button.Click += GridButtonPressed;
-                    grid[x, y] = new Cell(button);
-                    UniformGrid.Children.Add(button);
-                }
-            }
-            board = new Board(grid);
-        }
+	public partial class MainWindow : Window
+	{
+		int cellSize = 50;
+		Board board;
+		public MainWindow()
+		{
+			InitializeComponent();
+			Cell[,] grid = new Cell[8, 8];
+			for (int x = 0; x < 8; x++)
+			{
+				for (int y = 0; y < 8; y++)
+				{
+					EButton button = new EButton(x, y)
+					{
+						Width = cellSize,
+						Height = cellSize,
+						Margin = new Thickness(1, 1, 1, 1)
+					};
+					button.Click += GridButtonPressed;
+					ItemPresenter.Items.Add(button);
+					grid[x, y] = new Cell(button);
+				}
+			}
+			board = new Board(grid);
+		}
 
-        private void GridButtonPressed(object sender, RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            string[] name = button.Uid.Split(':');
-            Console.WriteLine($"{name[0]}, {name[1]}");
-        }
-    }
+		private void GridButtonPressed(object sender, RoutedEventArgs e)
+		{
+			EButton button = (EButton)sender;
+			Console.WriteLine($"{button.position[0]}, {button.position[1]}");
+		}
+	}
 }

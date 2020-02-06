@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TwoPlayerChess
 {
-    class Board
-    {
-        Cell[,] grid;
-        public Board(Cell[,] grid)
-        {
-            this.grid = grid;
-        }
-    }
+	class Board
+	{
+		Cell[,] grid;
+		public Board(Cell[,] grid)
+		{
+			this.grid = grid;
+		}
+	}
 }
