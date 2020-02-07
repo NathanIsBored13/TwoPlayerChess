@@ -10,9 +10,7 @@
 		SizeToContent="WidthAndHeight"
 		ResizeMode="NoResize">
     <StackPanel Margin="5" Orientation="Horizontal">
-        <Border Padding="1">
-            <UniformGrid x:Name="UniformGrid"/>
-        </Border>
+        <UniformGrid x:Name="UniformGrid"/>
         <Border Margin="5, 0, 0, 0" Padding="5">
             <StackPanel>
                 <Label FontSize="20" FontWeight="bold"  Content="Two Player Chess"/>
