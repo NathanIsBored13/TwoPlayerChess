@@ -16,9 +16,6 @@
                         </Trigger>
                     </Style.Triggers>
                 </Style>
-                <Style TargetType="UniformGrid">
-                    <Setter Property="Background" Value="DarkGray"/>
-                </Style>
                 <Style TargetType="Border">
                     <Setter Property="Background" Value="DarkGray"/>
                 </Style>
