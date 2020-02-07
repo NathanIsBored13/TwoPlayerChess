@@ -6,7 +6,7 @@
 		xmlns:local="clr-namespace:TwoPlayerChess"
 		mc:Ignorable="d"
 		Title="Two Player Chess"
-		Style="{StaticResource Grayscale}"
+        x:Name="MWindow"
 		SizeToContent="WidthAndHeight"
 		ResizeMode="NoResize">
     <StackPanel Margin="5" Orientation="Horizontal">

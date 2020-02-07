@@ -22,23 +22,8 @@ namespace TwoPlayerChess
 		public MainWindow()
 		{
 			InitializeComponent();
-			Cell[,] grid = new Cell[8, 8];
-			for (int x = 0; x < 8; x++)
-			{
-				for (int y = 0; y < 8; y++)
-				{
-					EButton button = new EButton(x, y)
-					{
-						Width = cellSize,
-						Height = cellSize,
-						Margin = new Thickness(1, 1, 1, 1)
-					};
-					button.Click += GridButtonPressed;
-					UniformGrid.Children.Add(button);
-					grid[x, y] = new Cell(button);
-				}
-			}
-			board = new Board(grid);
+			MWindow.Style = (Style)FindResource("Grayscale");
+			board = new Board(UniformGrid, GridButtonPressed, cellSize);
 		}
 
 		private void GridButtonPressed(object sender, RoutedEventArgs e)
