@@ -23,13 +23,14 @@ namespace TwoPlayerChess
 		{
 			InitializeComponent();
 			MWindow.Style = (Style)FindResource("Grayscale");
+			Icons.LoadPool("Simple_Pieces");
 			board = new Board(UniformGrid, GridButtonPressed, cellSize);
 		}
 
 		private void GridButtonPressed(object sender, RoutedEventArgs e)
 		{
-			EButton button = (EButton)sender;
-			Console.WriteLine($"{button.position[0]}, {button.position[1]}");
+			Cell button = (Cell)sender;
+			Console.WriteLine($"{button.Position[0]}, {button.Position[1]}");
 		}
 	}
 }

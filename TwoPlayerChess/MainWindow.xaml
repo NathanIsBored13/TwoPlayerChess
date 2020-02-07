@@ -17,18 +17,18 @@
             <StackPanel>
                 <Label FontSize="20" FontWeight="bold"  Content="Two Player Chess"/>
 				<Label FontSize="15" FontWeight="Light" Content="by Nathaniel Smith"/>
-				<Grid Margin="0, 20, 0, 0">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="auto"/>
-					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="auto"/>
-						<ColumnDefinition Width="auto"/>
-					</Grid.ColumnDefinitions>
-					<Label Grid.Row="0" Grid.Column="0" Content="Turns:"/>
-					<Label Grid.Row="0" Grid.Column="0" Name="TurnCounter"/>
-				</Grid>
-			</StackPanel>
+                <Grid Margin="0, 20, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Turns:"/>
+                    <Label Grid.Row="0" Grid.Column="0" Name="TurnCounter"/>
+                </Grid>
+            </StackPanel>
 		</Border>
 	</StackPanel>
 </Window>

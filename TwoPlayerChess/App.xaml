@@ -6,7 +6,7 @@
     <Application.Resources>
         <Style TargetType="Window" x:Key="Grayscale">
             <Style.Resources>
-                <Style TargetType="local:EButton">
+                <Style TargetType="local:Cell">
                     <Style.Triggers>
                         <Trigger Property="Highlighted" Value="true">
                             <Setter Property="Background" Value="GhostWhite"/>

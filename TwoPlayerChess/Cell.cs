@@ -15,12 +15,33 @@ using System.Windows.Shapes;
 
 namespace TwoPlayerChess
 {
-	class Cell
-	{
-		Button button;
-		public Cell(Button button)
-		{
-			this.button = button;
-		}
-	}
+    class Cell : Button
+    {
+        public bool Highlighted
+        {
+            get { return (bool)GetValue(HighlightedProperty); }
+            set { SetValue(HighlightedProperty, value); }
+        }
+        public static readonly DependencyProperty HighlightedProperty = DependencyProperty.Register("Highlighted", typeof(bool), typeof(Cell));
+
+        public int[] Position { get; }
+        public Image image;
+        public Piece piece;
+        public Cell(int x, int y) : base()
+        {
+            Position = new int[2] { x, y };
+            Highlighted = (y + (x % 2)) % 2 == 0;
+            image = new Image
+            {
+                Stretch = Stretch.UniformToFill
+            };
+            AddChild(image);
+        }
+
+        public void SetPiece(Piece piece)
+        {
+            this.piece = piece;
+            image.Source = piece?.image;
+        }
+    }
 }
