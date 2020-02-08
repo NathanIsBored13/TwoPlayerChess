@@ -28,9 +28,9 @@ namespace TwoPlayerChess
 				{
 					this.grid[x, y] = new Cell(x, y)
 					{
+						IsTabStop = false,
 						Width = cellSize,
 						Height = cellSize,
-						Margin = new Thickness(1, 1, 1, 1)
 					};
 					this.grid[x, y].Click += handler;
 					grid.Children.Add(this.grid[x, y]);

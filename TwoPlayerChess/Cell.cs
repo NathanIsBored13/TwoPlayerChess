@@ -17,12 +17,18 @@ namespace TwoPlayerChess
 {
     class Cell : Button
     {
-        public bool Highlighted
+        public bool Checkered
         {
-            get { return (bool)GetValue(HighlightedProperty); }
+            get { return (bool)GetValue(CheckeredProperty); }
+            set { SetValue(CheckeredProperty, value); }
+        }
+        public static readonly DependencyProperty CheckeredProperty = DependencyProperty.Register("Checkered", typeof(bool), typeof(Cell));
+        public int Highlighted
+        {
+            get { return (int)GetValue(HighlightedProperty); }
             set { SetValue(HighlightedProperty, value); }
         }
-        public static readonly DependencyProperty HighlightedProperty = DependencyProperty.Register("Highlighted", typeof(bool), typeof(Cell));
+        public static readonly DependencyProperty HighlightedProperty = DependencyProperty.Register("Highlighted", typeof(int), typeof(Cell), new PropertyMetadata(0));
 
         public int[] Position { get; }
         public Image image;
@@ -30,7 +36,7 @@ namespace TwoPlayerChess
         public Cell(int x, int y) : base()
         {
             Position = new int[2] { x, y };
-            Highlighted = (y + (x % 2)) % 2 == 0;
+            Checkered = (y + (x % 2)) % 2 == 0;
             image = new Image
             {
                 Stretch = Stretch.UniformToFill

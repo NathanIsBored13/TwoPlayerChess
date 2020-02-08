@@ -32,5 +32,10 @@ namespace TwoPlayerChess
 			Cell button = (Cell)sender;
 			Console.WriteLine($"{button.Position[0]}, {button.Position[1]}");
 		}
+
+		public void CellClicked(int x, int y)
+		{
+
+		}
 	}
 }
