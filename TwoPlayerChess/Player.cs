@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace TwoPlayerChess
 {
-    enum Colour
-    {
-        black,
-        white
-    }
     class Player
     {
         private Cell buffered;
@@ -30,15 +25,21 @@ namespace TwoPlayerChess
                 board.DeselectAll();
                 ret = true;
             }
-            else if(pressed.piece != null)
-            {
-                board.DeselectAll();
-                buffered = pressed;
-                foreach (Cell cell in pressed.piece.GetMoves(board)) cell.Highlight = cell.piece == null ? 1 : 2;
-            }
             else
             {
                 board.DeselectAll();
+                if (pressed.piece?.colour == colour)
+                {
+                    pressed.Highlight = 1;
+                    foreach (Cell cell in pressed.piece.GetMoves(board, pressed))
+                    {
+                        if (cell.piece?.colour != colour)
+                        {
+                            cell.Highlight = cell.piece == null ? 2 : 3;
+                        }
+                    }
+                    buffered = pressed;
+                }
             }
             return ret;
         }

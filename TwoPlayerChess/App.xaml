@@ -25,9 +25,12 @@
                             <Setter Property="Background" Value="DimGray"/>
                         </Trigger>
                         <Trigger Property="Highlight" Value="1">
-                            <Setter Property="Foreground" Value="Green"/>
+                            <Setter Property="Foreground" Value="Blue"/>
                         </Trigger>
                         <Trigger Property="Highlight" Value="2">
+                            <Setter Property="Foreground" Value="Green"/>
+                        </Trigger>
+                        <Trigger Property="Highlight" Value="3">
                             <Setter Property="Foreground" Value="Red"/>
                         </Trigger>
                     </Style.Triggers>

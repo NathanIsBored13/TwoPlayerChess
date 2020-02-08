@@ -17,6 +17,6 @@ namespace TwoPlayerChess
             this.colour = colour;
         }
 
-        public abstract Cell[] GetMoves(Board board);
+        public abstract Cell[] GetMoves(Board board, Cell cell);
     }
 }
