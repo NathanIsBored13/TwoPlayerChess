@@ -8,14 +8,14 @@ namespace TwoPlayerChess
 {
     class Bishop : Piece
     {
-        public Bishop(bool colour) : base(colour)
+        public Bishop(Colour colour) : base(colour)
         {
-            image = colour ? Icons.imagePool.BBishop : Icons.imagePool.WBishop;
+            image = colour == Colour.white ? Icons.imagePool.WBishop : Icons.imagePool.BBishop;
         }
 
-        public override void GetMoves(Board board)
+        public override Cell[] GetMoves(Board board)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

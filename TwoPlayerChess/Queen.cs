@@ -8,14 +8,14 @@ namespace TwoPlayerChess
 {
     class Queen : Piece
     {
-        public Queen(bool colour) : base(colour)
+        public Queen(Colour colour) : base(colour)
         {
-            image = colour ? Icons.imagePool.BQueen : Icons.imagePool.WQueen;
+            image = colour == Colour.white ? Icons.imagePool.WQueen : Icons.imagePool.BQueen;
         }
 
-        public override void GetMoves(Board board)
+        public override Cell[] GetMoves(Board board)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

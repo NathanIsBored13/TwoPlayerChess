@@ -24,10 +24,10 @@
                         <Trigger Property="Checkered" Value="false">
                             <Setter Property="Background" Value="DimGray"/>
                         </Trigger>
-                        <Trigger Property="Highlighted" Value="1">
+                        <Trigger Property="Highlight" Value="1">
                             <Setter Property="Foreground" Value="Green"/>
                         </Trigger>
-                        <Trigger Property="Highlighted" Value="2">
+                        <Trigger Property="Highlight" Value="2">
                             <Setter Property="Foreground" Value="Red"/>
                         </Trigger>
                     </Style.Triggers>

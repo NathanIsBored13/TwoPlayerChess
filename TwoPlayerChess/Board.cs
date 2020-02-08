@@ -18,7 +18,7 @@ namespace TwoPlayerChess
 {
 	class Board
 	{
-		Cell[,] grid;
+		public Cell[,] grid;
 		public Board(UniformGrid grid, RoutedEventHandler handler, int cellSize)
 		{
 			this.grid = new Cell[8, 8];
@@ -38,28 +38,33 @@ namespace TwoPlayerChess
 			}
 			for (int x = 0; x < 8; x++)
 			{
-				this.grid[x, 1].SetPiece(new Pawn(true));
-				this.grid[x, 6].SetPiece(new Pawn(false));
+				this.grid[x, 1].SetPiece(new Pawn(Colour.black));
+				this.grid[x, 6].SetPiece(new Pawn(Colour.white));
 				if (x == 0 || x == 7)
 				{
-					this.grid[x, 0].SetPiece(new Rook(true));
-					this.grid[x, 7].SetPiece(new Rook(false));
+					this.grid[x, 0].SetPiece(new Rook(Colour.black));
+					this.grid[x, 7].SetPiece(new Rook(Colour.white));
 				}
 				else if (x == 1 || x == 6)
 				{
-					this.grid[x, 0].SetPiece(new Knight(true));
-					this.grid[x, 7].SetPiece(new Knight(false));
+					this.grid[x, 0].SetPiece(new Knight(Colour.black));
+					this.grid[x, 7].SetPiece(new Knight(Colour.white));
 				}
 				else if (x == 2 || x == 5)
 				{
-					this.grid[x, 0].SetPiece(new Bishop(true));
-					this.grid[x, 7].SetPiece(new Bishop(false));
+					this.grid[x, 0].SetPiece(new Bishop(Colour.black));
+					this.grid[x, 7].SetPiece(new Bishop(Colour.white));
 				}
 			}
-			this.grid[3, 0].SetPiece(new Queen(true));
-			this.grid[4, 0].SetPiece(new King(true));
-			this.grid[3, 7].SetPiece(new Queen(false));
-			this.grid[4, 7].SetPiece(new King(false));
+			this.grid[3, 0].SetPiece(new Queen(Colour.black));
+			this.grid[4, 0].SetPiece(new King(Colour.black));
+			this.grid[3, 7].SetPiece(new Queen(Colour.white));
+			this.grid[4, 7].SetPiece(new King(Colour.white));
+		}
+
+		public void DeselectAll()
+		{
+			foreach (Cell cell in grid) cell.Highlight = 0;
 		}
 	}
 }

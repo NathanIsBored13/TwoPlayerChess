@@ -9,14 +9,14 @@ namespace TwoPlayerChess
 {
     abstract class Piece
     {
-        private bool colour { get; }
+        public Colour colour { get; }
         public ImageSource image { get; set; }
 
-        public Piece(bool colour)
+        public Piece(Colour colour)
         {
             this.colour = colour;
         }
 
-        public abstract void GetMoves(Board board);
+        public abstract Cell[] GetMoves(Board board);
     }
 }

@@ -8,14 +8,14 @@ namespace TwoPlayerChess
 {
     class Pawn : Piece
     {
-        public Pawn(bool colour) : base(colour)
+        public Pawn(Colour colour) : base(colour)
         {
-            image = colour ? Icons.imagePool.BPawn : Icons.imagePool.WPawn;
+            image = colour == Colour.white ? Icons.imagePool.WPawn : Icons.imagePool.BPawn;
         }
 
-        public override void GetMoves(Board board)
+        public override Cell[] GetMoves(Board board)
         {
-
+            return new Cell[] { board.grid[3, 3], board.grid[4, 4] };
         }
     }
 }

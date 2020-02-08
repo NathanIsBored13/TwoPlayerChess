@@ -8,14 +8,14 @@ namespace TwoPlayerChess
 {
     class Rook : Piece
     {
-        public Rook(bool colour) : base(colour)
+        public Rook(Colour colour) : base(colour)
         {
-            image = colour ? Icons.imagePool.BRook : Icons.imagePool.WRook;
+            image = colour == Colour.white ? Icons.imagePool.WRook : Icons.imagePool.BRook;
         }
 
-        public override void GetMoves(Board board)
+        public override Cell[] GetMoves(Board board)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

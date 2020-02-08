@@ -19,23 +19,26 @@ namespace TwoPlayerChess
 	{
 		int cellSize = 50;
 		Board board;
+		Player[] players;
+		int index;
+
 		public MainWindow()
 		{
 			InitializeComponent();
 			MWindow.Style = (Style)FindResource("Grayscale");
 			Icons.LoadPool("Simple_Pieces");
-			board = new Board(UniformGrid, GridButtonPressed, cellSize);
+			board = new Board(UniformGrid, Cell_Click, cellSize);
+			players = new Player[2];
+			players[0] = new Player(Colour.white);
+			players[1] = new Player(Colour.black);
 		}
 
-		private void GridButtonPressed(object sender, RoutedEventArgs e)
+		private void Cell_Click(object sender, RoutedEventArgs e)
 		{
-			Cell button = (Cell)sender;
-			Console.WriteLine($"{button.Position[0]}, {button.Position[1]}");
-		}
-
-		public void CellClicked(int x, int y)
-		{
-
+			if (players[index].Move(board, (Cell) sender))
+			{
+				index = (index + 1) % 2;
+			}
 		}
 	}
 }

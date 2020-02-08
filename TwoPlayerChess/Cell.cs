@@ -23,12 +23,12 @@ namespace TwoPlayerChess
             set { SetValue(CheckeredProperty, value); }
         }
         public static readonly DependencyProperty CheckeredProperty = DependencyProperty.Register("Checkered", typeof(bool), typeof(Cell));
-        public int Highlighted
+        public int Highlight
         {
-            get { return (int)GetValue(HighlightedProperty); }
-            set { SetValue(HighlightedProperty, value); }
+            get { return (int)GetValue(HighlighteProperty); }
+            set { SetValue(HighlighteProperty, value); }
         }
-        public static readonly DependencyProperty HighlightedProperty = DependencyProperty.Register("Highlighted", typeof(int), typeof(Cell), new PropertyMetadata(0));
+        public static readonly DependencyProperty HighlighteProperty = DependencyProperty.Register("Highlight", typeof(int), typeof(Cell), new PropertyMetadata(0));
 
         public int[] Position { get; }
         public Image image;
