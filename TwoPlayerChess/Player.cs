@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TwoPlayerChess
+﻿namespace TwoPlayerChess
 {
     class Player
     {
@@ -18,7 +12,7 @@ namespace TwoPlayerChess
         public bool Move(Board board, Cell pressed)
         {
             bool ret = false;
-            if (pressed.Highlight > 0)
+            if (pressed.Highlight == 2 || pressed.Highlight == 3)
             {
                 pressed.SetPiece(buffered.piece);
                 buffered.SetPiece(null);

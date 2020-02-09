@@ -7,6 +7,18 @@ namespace TwoPlayerChess
 		black,
 		white
 	}
+		
+	public struct Position
+	{
+		public int x;
+		public int y;
+		public Position(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
+
+		}
+	}
 	public partial class MainWindow : Window
 	{
 		readonly int cellSize = 50;

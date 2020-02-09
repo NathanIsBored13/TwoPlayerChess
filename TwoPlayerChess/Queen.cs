@@ -15,7 +15,9 @@ namespace TwoPlayerChess
 
         public override Cell[] GetMoves(Board board, Cell cell)
         {
-            throw new NotImplementedException();
+            List<Cell> ret = GetHorisontals(board, cell);
+            ret.AddRange(GetDiagonals(board, cell));
+            return ret.ToArray();
         }
     }
 }

@@ -13,9 +13,6 @@ namespace TwoPlayerChess
             image = colour == Colour.white ? Icons.imagePool.WBishop : Icons.imagePool.BBishop;
         }
 
-        public override Cell[] GetMoves(Board board, Cell cell)
-        {
-            throw new NotImplementedException();
-        }
+        public override Cell[] GetMoves(Board board, Cell cell) => GetDiagonals(board, cell).ToArray();
     }
 }

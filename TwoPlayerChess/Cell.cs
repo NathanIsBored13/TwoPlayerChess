@@ -30,12 +30,12 @@ namespace TwoPlayerChess
         }
         public static readonly DependencyProperty HighlighteProperty = DependencyProperty.Register("Highlight", typeof(int), typeof(Cell), new PropertyMetadata(0));
 
-        public int[] Position { get; }
+        public Position Position { get; }
         public Image image;
         public Piece piece;
         public Cell(int x, int y) : base()
         {
-            Position = new int[2] { x, y };
+            Position = new Position(x, y);
             Checkered = (y + (x % 2)) % 2 == 0;
             image = new Image
             {
