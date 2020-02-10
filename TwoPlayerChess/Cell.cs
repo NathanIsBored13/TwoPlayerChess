@@ -36,6 +36,7 @@ namespace TwoPlayerChess
         public void SetPiece(Piece piece)
         {
             this.piece = piece;
+            if (piece != null) piece.SetCell(this);
             image.Source = piece?.image;
         }
     }

@@ -9,7 +9,7 @@ namespace TwoPlayerChess
             image = colour == Colour.white ? Icons.imagePool.WKnight : Icons.imagePool.BKnight;
         }
 
-        public override Cell[] GetMoves(Board board, Cell cell)
+        public override Cell[] GetMoves(Board board)
         {
             List<Cell> ret = new List<Cell>();
             bool[] check = new bool[8] { true, true, true, true, true, true, true, true };

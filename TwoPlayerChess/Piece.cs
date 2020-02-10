@@ -17,16 +17,21 @@ namespace TwoPlayerChess
         public Colour colour { get; }
         public Pieces type { get; }
         public ImageSource image { get; set; }
-
+        public Cell cell { get; set; }
         public Piece(Colour colour, Pieces type)
         {
             this.colour = colour;
             this.type = type;
         }
 
-        public abstract Cell[] GetMoves(Board board, Cell cell);
+        public abstract Cell[] GetMoves(Board board);
 
-        public List<Cell> GetHorisontals(Board board, Cell cell)
+        public void SetCell(Cell cell)
+        {
+            this.cell = cell;
+        }
+
+        public List<Cell> GetHorisontals(Board board)
         {
             List<Cell> ret = new List<Cell>();
             int[] pointer = new int[] { cell.Position.x, cell.Position.y };
@@ -60,7 +65,7 @@ namespace TwoPlayerChess
             return ret;
         }
 
-        public List<Cell> GetDiagonals(Board board, Cell cell)
+        public List<Cell> GetDiagonals(Board board)
         {
             List<Cell> ret = new List<Cell>();
             int[] pointer = new int[] { cell.Position.x, cell.Position.y };
@@ -94,7 +99,7 @@ namespace TwoPlayerChess
             return ret;
         }
 
-        public Cell[] GetKingsMoves(Board board, Cell cell)
+        public Cell[] GetKingsMoves(Board board)
         {
             List<Cell> ret = new List<Cell>();
             if (cell.Position.x != 0)

@@ -9,10 +9,10 @@ namespace TwoPlayerChess
             image = colour == Colour.white ? Icons.imagePool.WQueen : Icons.imagePool.BQueen;
         }
 
-        public override Cell[] GetMoves(Board board, Cell cell)
+        public override Cell[] GetMoves(Board board)
         {
-            List<Cell> ret = GetHorisontals(board, cell);
-            ret.AddRange(GetDiagonals(board, cell));
+            List<Cell> ret = GetHorisontals(board);
+            ret.AddRange(GetDiagonals(board));
             return ret.ToArray();
         }
     }

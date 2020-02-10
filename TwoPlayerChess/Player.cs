@@ -4,8 +4,10 @@
     {
         private Cell buffered;
         public Colour colour { get; }
-        public Player(Colour colour)
+        public King king { get; }
+        public Player(Colour colour, King king)
         {
+            this.king = king;
             this.colour = colour;
         }
 
@@ -24,7 +26,7 @@
                 board.DeselectAll();
                 if (pressed.piece?.colour == colour)
                 {
-                    foreach (Cell cell in pressed.piece.GetMoves(board, pressed))
+                    foreach (Cell cell in pressed.piece.GetMoves(board))
                     {
                         if (cell.piece == null) cell.Highlight = 2;
                         else if (cell.piece.colour != colour) cell.Highlight = 3;

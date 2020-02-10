@@ -9,7 +9,7 @@ namespace TwoPlayerChess
             image = colour == Colour.white ? Icons.imagePool.WPawn : Icons.imagePool.BPawn;
         }
 
-        public override Cell[] GetMoves(Board board, Cell cell)
+        public override Cell[] GetMoves(Board board)
         {
             List<Cell> ret = new List<Cell>();
             if (colour == Colour.white)

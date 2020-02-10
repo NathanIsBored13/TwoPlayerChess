@@ -7,6 +7,6 @@
             image = colour == Colour.white ? Icons.imagePool.WRook : Icons.imagePool.BRook;
         }
 
-        public override Cell[] GetMoves(Board board, Cell cell) => GetHorisontals(board, cell).ToArray();
+        public override Cell[] GetMoves(Board board) => GetHorisontals(board).ToArray();
     }
 }

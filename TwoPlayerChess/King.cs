@@ -9,7 +9,7 @@ namespace TwoPlayerChess
             image = colour == Colour.white ? Icons.imagePool.WKing : Icons.imagePool.BKing;
         }
 
-        public override Cell[] GetMoves(Board board, Cell cell)
+        public override Cell[] GetMoves(Board board)
         {
             List<Cell> ret = new List<Cell>();
             board.HighlightAllMoves((Colour) ((((int) colour) + 1) % 2));
@@ -18,7 +18,7 @@ namespace TwoPlayerChess
                 cell.Highlight = 4;
                 System.Console.WriteLine("check");
             }
-            foreach (Cell possible in GetKingsMoves(board, cell)) if (possible.Highlight != 5) ret.Add(possible);
+            foreach (Cell possible in GetKingsMoves(board)) if (possible.Highlight != 5) ret.Add(possible);
             board.DeselectAll();
             return ret.ToArray();
         }
