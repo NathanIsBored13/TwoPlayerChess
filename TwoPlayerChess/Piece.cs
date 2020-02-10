@@ -3,14 +3,25 @@ using System.Windows.Media;
 
 namespace TwoPlayerChess
 {
+    enum Pieces
+    {
+        King,
+        Queen,
+        Rook,
+        Bishop,
+        Knight,
+        Pawn
+    };
     abstract class Piece
     {
         public Colour colour { get; }
+        public Pieces type { get; }
         public ImageSource image { get; set; }
 
-        public Piece(Colour colour)
+        public Piece(Colour colour, Pieces type)
         {
             this.colour = colour;
+            this.type = type;
         }
 
         public abstract Cell[] GetMoves(Board board, Cell cell);
@@ -81,6 +92,26 @@ namespace TwoPlayerChess
                 }
             } while (count < 4);
             return ret;
+        }
+
+        public Cell[] GetKingsMoves(Board board, Cell cell)
+        {
+            List<Cell> ret = new List<Cell>();
+            if (cell.Position.x != 0)
+            {
+                ret.Add(board.grid[cell.Position.x - 1, cell.Position.y]);
+                if (cell.Position.y != 0) ret.Add(board.grid[cell.Position.x - 1, cell.Position.y - 1]);
+                if (cell.Position.y != 7) ret.Add(board.grid[cell.Position.x - 1, cell.Position.y + 1]);
+            }
+            if (cell.Position.x != 7)
+            {
+                ret.Add(board.grid[cell.Position.x + 1, cell.Position.y]);
+                if (cell.Position.y != 0) ret.Add(board.grid[cell.Position.x + 1, cell.Position.y - 1]);
+                if (cell.Position.y != 7) ret.Add(board.grid[cell.Position.x + 1, cell.Position.y + 1]);
+            }
+            if (cell.Position.y != 0) ret.Add(board.grid[cell.Position.x, cell.Position.y - 1]);
+            if (cell.Position.y != 7) ret.Add(board.grid[cell.Position.x, cell.Position.y + 1]);
+            return ret.ToArray();
         }
     }
 }

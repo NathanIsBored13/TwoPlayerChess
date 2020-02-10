@@ -4,7 +4,7 @@ namespace TwoPlayerChess
 {
     class Knight : Piece
     {
-        public Knight(Colour colour) : base(colour)
+        public Knight(Colour colour) : base(colour, Pieces.Knight)
         {
             image = colour == Colour.white ? Icons.imagePool.WKnight : Icons.imagePool.BKnight;
         }

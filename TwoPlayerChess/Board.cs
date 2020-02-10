@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls.Primitives;
 
 namespace TwoPlayerChess
@@ -49,9 +50,51 @@ namespace TwoPlayerChess
 			this.grid[4, 7].SetPiece(new King(Colour.white));
 		}
 
+		public void HighlightAllMoves(Colour colour)
+		{
+			List<Cell> cells = new List<Cell>();
+			foreach (Cell cell in grid)
+			{
+				if (cell.piece?.colour == colour)
+				{
+					if (cell.piece.type == Pieces.King) cells.AddRange(cell.piece.GetKingsMoves(this, cell));
+					else if (cell.piece.type == Pieces.Pawn)
+					{
+						foreach (Cell toAdd in cell.piece.GetMoves(this, cell))
+						{
+							if (toAdd.Position.x != cell.Position.x) cells.Add(toAdd);
+						}
+					}
+					else cells.AddRange(cell.piece.GetMoves(this, cell));
+				}
+			}
+			foreach (Cell cell in cells) cell.Highlight = 5;
+		}
+
+		public bool CheckLoss(Colour colour)
+		{
+			bool ret = false;
+			HighlightAllMoves((Colour)((((int)colour) + 1) % 2));
+			foreach (Cell cell in grid)
+			{
+				if (cell.piece?.type == Pieces.King && cell.piece?.colour == colour)
+				{
+					if (cell.piece.GetMoves(this, cell).Length == 0 && cell.Highlight == 4)
+					{
+						ret = true;
+					}
+					else ret = false;
+				}
+			}
+			return ret;
+		}
+
 		public void DeselectAll()
 		{
-			foreach (Cell cell in grid) cell.Highlight = 0;
+			foreach (Cell cell in grid)
+			{
+				if (cell.Highlight != 4) cell.Highlight = 0;
+			}
 		}
 	}
 }

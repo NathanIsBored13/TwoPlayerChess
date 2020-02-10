@@ -24,14 +24,12 @@
                 board.DeselectAll();
                 if (pressed.piece?.colour == colour)
                 {
-                    pressed.Highlight = 1;
                     foreach (Cell cell in pressed.piece.GetMoves(board, pressed))
                     {
-                        if (cell.piece?.colour != colour)
-                        {
-                            cell.Highlight = cell.piece == null ? 2 : 3;
-                        }
+                        if (cell.piece == null) cell.Highlight = 2;
+                        else if (cell.piece.colour != colour) cell.Highlight = 3;
                     }
+                    if (pressed.Highlight != 4) pressed.Highlight = 5;
                     buffered = pressed;
                 }
             }

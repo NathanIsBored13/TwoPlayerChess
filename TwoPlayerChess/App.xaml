@@ -7,10 +7,10 @@
         <ControlTemplate TargetType="local:Cell" x:Key="CellTemplate">
             <ControlTemplate.Triggers>
             </ControlTemplate.Triggers>
-            <Border Background="{TemplateBinding Background}" BorderThickness="1" x:Name="Border">
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
                 <Grid>
-                    <Button Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="Transparent" Content="{TemplateBinding Content}"/>
-                    <Ellipse Margin="10" Stretch="UniformToFill" Fill="{TemplateBinding Foreground}" Opacity="0.5" IsHitTestVisible="False" x:Name="Ellipse"/>
+                    <Button Background="Transparent" Content="{TemplateBinding Content}"/>
+                    <Ellipse Margin="10" Stretch="UniformToFill" Fill="{TemplateBinding Foreground}" Opacity="0.5" IsHitTestVisible="False"/>
                 </Grid>
             </Border>
         </ControlTemplate>
@@ -33,9 +33,14 @@
                         <Trigger Property="Highlight" Value="3">
                             <Setter Property="Foreground" Value="Red"/>
                         </Trigger>
+                        <Trigger Property="Highlight" Value="4">
+                            <Setter Property="BorderBrush" Value="Red"/>
+                            <Setter Property="Background" Value="Red"/>
+                        </Trigger>
                     </Style.Triggers>
                     <Setter Property="Template" Value="{StaticResource CellTemplate}"/>
                     <Setter Property="Foreground" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
                 </Style>
                 <Style TargetType="UniformGrid">
                     <Setter Property="Background" Value="DarkGray"/>

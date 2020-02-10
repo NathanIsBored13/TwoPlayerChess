@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace TwoPlayerChess
 {
@@ -16,7 +17,6 @@ namespace TwoPlayerChess
 		{
 			this.x = x;
 			this.y = y;
-
 		}
 	}
 	public partial class MainWindow : Window
@@ -41,6 +41,10 @@ namespace TwoPlayerChess
 		{
 			if (players[index].Move(board, (Cell)sender))
 			{
+				if (board.CheckLoss(players[(index + 1) % 2].colour))
+				{
+					Console.WriteLine($"{players[index].colour} won!");
+				}
 				index = (index + 1) % 2;
 			}
 		}

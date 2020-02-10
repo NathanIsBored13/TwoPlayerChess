@@ -4,7 +4,7 @@ namespace TwoPlayerChess
 {
     class Pawn : Piece
     {
-        public Pawn(Colour colour) : base(colour)
+        public Pawn(Colour colour) : base(colour, Pieces.Pawn)
         {
             image = colour == Colour.white ? Icons.imagePool.WPawn : Icons.imagePool.BPawn;
         }
